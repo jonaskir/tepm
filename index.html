@@ -1,9 +1,85 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Text Entry Perfomance Measures</title>
-  </head>
-  <body>
-    <h1>Coming Soon</h1>
-  </body>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="index, follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="https://github.com/jonaskir/" />
+
+  <title>Text Entry Performance Measures</title>
+
+  <link rel="stylesheet" href="spectre.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <!--[if lt IE 8]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <div class="bg-gray">
+    <div class="container grid-960">
+      <header class="navbar">
+        <div class="navbar-section">
+          <a href="#" class="navbar-brand mr-10">Text Entry Performance Measures</a>
+        </div>
+        <div class="navbar-section"></div>
+      </header>
+    </div>
+  </div>
+  <div class="container grid-960 main">
+    <section id="sctInput" class="container">
+      <p class="prompt"><strong>Please enter below:</strong>
+        <code id="input-prompt">The quick brown fox jumps over the lazy dog.</code></p>
+      <form>
+        <div class="input-group">
+          <input id="input" type="text" autocomplete="off" class="form-input" placeholder="Write here" />
+          <button id="resetBtn" type="button" class="btn btn-primary input-group-btn">Reset</button>
+        </div>
+      </form>
+    </section>
+    <section id="content" class="container grid-960">
+      <!-- Automatically generated! -->
+    </div>
+    <section class="container">
+      <pre>
+        <code id="log"></code>
+      </pre>
+    </section>
+  </div>
+  <div class="bg-gray">
+    <footer class="container grid-960">
+      <p>
+        <strong>Text Entry Performance Measures</strong>
+      </p>
+      <p>
+        © 2017 by <a href="https://github.com/jonaskir">github.com/jonaskir</a>
+        <span class="separator">|</span> Design based on <a href="https://picturepan2.github.io/spectre/index.html">Spectre.css</a>
+        <span class="separator">|</span> Formulas rendered by <a href="https://khan.github.io/KaTeX/">KaTeX</a>
+        <span class="separator">|</span> MSD calculation by <a href="https://github.com/gustf/js-levenshtein/">js-levenshtein</a>
+      </p>
+      <p>
+        <i>All provided under MIT license.</i>
+      </p>
+    </footer>
+  </div>
+  <!-- Invisible Popovers -->
+  <div style="display: none">
+    <div id="cps-popup">
+      <p>Lorem ipsum dolor sit amet.</p>
+      <span class="katex">$$\text{CPS} = \frac{|T|-1}{|S|}$$</span>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+  <script>
+    renderMathInElement(document.body);
+  </script>
+</body>
+
 </html>

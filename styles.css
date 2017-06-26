@@ -1,0 +1,43 @@
+.bg-gray {
+  background: #f8f9fa;
+  color: #667189;
+  padding: 1.5rem;
+}
+
+.main {
+  padding: 1.5rem;
+}
+
+td {
+  width: 50%;
+}
+
+.td-info {
+  width: 5%;
+}
+
+.measure-container {
+  margin-top: 2rem;
+}
+
+.measure-container h5 {
+  margin-bottom: 0.5rem;
+}
+
+.measure-info-icon {
+  margin: 0px;
+  padding: 0px;
+  font-size: 1.7rem;
+}
+
+footer .separator {
+  margin: 0 0.3rem;
+}
+
+.prompt {
+  font-size: 1.6rem;
+}
+
+code#input-prompt {
+  margin-left: 0.5rem;
+}

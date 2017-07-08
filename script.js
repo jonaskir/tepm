@@ -236,10 +236,11 @@ function displayMeasureValue(measure) {
 }
 
 // Resets all values.
-function reset() {
+function reset(focusInput = true) {
   var input = el('input');
   input.value = '';
-  input.focus();
+  if (focusInput)
+    input.focus();
   inputStream.events = [];
   inputStream.lastEvent = null;
   inputStream.str = '';
@@ -312,16 +313,16 @@ window.onload = function () {
   el('input').oninput = onInputChange;
   el('resetBtn').onclick = reset;
 
-  reset();
+  reset(!(queryParams.mode === 'demo'));
 
   if (queryParams.decimalAccuracy)
     decimalAccuracy = queryParams.decimalAccuracy;
 
   if (queryParams.write)
-    simulateWrite(queryParams.write, queryParams.delay ? queryParams.delay : 500);
+    simulateWrite(queryParams.write, queryParams.delay);
 }
 
-function simulateWrite(str, delay) {
+function simulateWrite(str, delay = 250) {
   var input = el('input');
 
   var inputs = [];

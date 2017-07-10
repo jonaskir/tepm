@@ -372,7 +372,9 @@ var inputStream = {
 };
 
 function onInputChange(event) {
+  console.log(event);
   var input = el('input');
+  input.value = input.value.toLowerCase();
   var next = input.value;
   var prev = '';
   if (inputStream.lastEvent)

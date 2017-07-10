@@ -63,9 +63,42 @@
   </div>
   <!-- Invisible Popovers -->
   <div style="display: none">
+    <!-- Speed -->
     <div id="cps-popup">
-      <p>Lorem ipsum dolor sit amet.</p>
-      <span class="katex">$$\text{CPS} = \frac{|T|-1}{|S|}$$</span>
+      <span class="katex">$$\text{CPS} = \frac{|T|-1}{S}$$</span>
+    </div>
+    <div id="wpm-popup">
+      <span class="katex">$$\text{WPM} = \frac{|T|-1}{S} \times 60 \times \frac{1}{5}$$</span>
+      <span class="katex">$$ = \text{CPS} \times 12$$</span>
+    </div>
+    <div id="gps-popup">
+      <span class="katex">$$\text{GPS} = \frac{|IS|-1}{S}$$</span>
+    </div>
+    <!-- Accuracy -->
+    <div id="gpc-popup">
+      <span class="katex">$$\text{GPC} = \frac{|IS|}{|T|}$$</span>
+    </div>
+    <div id="cer-popup">
+      <span class="katex">$$\frac{IF}{C+INF+IF}$$</span>
+    </div>
+    <div id="uer-popup">
+      <span class="katex">$$\frac{INF}{C+INF+IF}$$</span>
+    </div>
+    <div id="ter-popup">
+      <span class="katex">$$\frac{IF+INF}{C+INF+IF}$$</span>
+    </div>
+    <!-- Efficiency -->
+    <div id="ce-popup">
+      <span class="katex">$$\frac{IF}{F}$$</span>
+    </div>
+    <div id="pc-popup">
+      <span class="katex">$$\frac{IF}{IF+INF}$$</span>
+    </div>
+    <div id="ubw-popup">
+      <span class="katex">$$\frac{C}{C+INF+IF+F}$$</span>
+    </div>
+    <div id="wbw-popup">
+      <span class="katex">$$\frac{INF+IF+F}{C+INF+IF+F}$$</span>
     </div>
   </div>
 

@@ -86,9 +86,17 @@ var m = {
     id: 'efficiency-measures',
     title: 'Efficiency',
     measures: {
+      ce: {
+        id: 'ce',
+        title: 'Correction Efficiency',
+        calculate: function () {
+          var { IF, F } = calculateErrorClasses();
+          return IF / F;
+        },
+      },
       pc: {
         id: 'pc',
-        title: 'Participant Conscientiousness (PC)',
+        title: 'Participant Conscientiousness',
         calculate: function () {
           var { C, IF, INF, F } = calculateErrorClasses();
           return IF / (IF + INF);

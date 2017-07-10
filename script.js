@@ -44,6 +44,11 @@ var m = {
         title: 'Words per Minute (WPM)',
         calculate: function () { return val('speed.cps') * 12; }
       },
+      adjwpm: {
+        id: 'adjwpm',
+        title: 'Adjusted Words per Minute (AdjWPM)',
+        calculate: function () { return val('speed.wpm') * (1-val('acc.uer')); }
+      },
       gps: {
         id: 'gps',
         title: 'Gestures per Second (GPS)',

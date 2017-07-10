@@ -90,7 +90,7 @@ var m = {
         id: 'ce',
         title: 'Correction Efficiency',
         calculate: function () {
-          var { IF, F } = calculateErrorClasses();
+          var { IF, F } = calculateCharacterClasses();
           return IF / F;
         },
       },
@@ -98,7 +98,7 @@ var m = {
         id: 'pc',
         title: 'Participant Conscientiousness',
         calculate: function () {
-          var { C, IF, INF, F } = calculateErrorClasses();
+          var { C, IF, INF, F } = calculateCharacterClasses();
           return IF / (IF + INF);
         },
       },
@@ -106,7 +106,7 @@ var m = {
         id: 'ubw',
         title: 'Utilized Bandwidth',
         calculate: function () {
-          var { C, IF, INF, F } = calculateErrorClasses();
+          var { C, IF, INF, F } = calculateCharacterClasses();
           return C / (C + INF + IF + F);
         },
       },
@@ -114,7 +114,7 @@ var m = {
         id: 'wbw',
         title: 'Wasted Bandwidth',
         calculate: function () {
-          var { C, IF, INF, F } = calculateErrorClasses();
+          var { C, IF, INF, F } = calculateCharacterClasses();
           return (INF + IF + F) / (C + INF + IF + F);
         },
       },
@@ -260,7 +260,7 @@ function registerEvent(event) {
   events.push(event);
 }
 
-function calculateErrorClasses() {
+function calculateCharacterClasses() {
   var INF = msd(inputPrompt, val('gen.transcribed'));
   var C = Math.max(inputPrompt.length, val('gen.transcribed').length) - INF;
   var corrections = inputStream.events.filter((e) => e.correction);
@@ -271,7 +271,7 @@ function calculateErrorClasses() {
 }
 
 function calculateErrorRates() {
-  var { C, IF, INF, F } = calculateErrorClasses();
+  var { C, IF, INF, F } = calculateCharacterClasses();
   var denom = C + INF + IF;
 
   return {

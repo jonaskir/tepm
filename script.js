@@ -309,6 +309,9 @@ window.onload = function () {
     hide = hide.concat(categories);
   }
 
+  if (queryParams.mode === 'demo')
+    el('footer').style.display = 'none';
+
   renderInitial(hide);
   el('input').oninput = onInputChange;
   el('resetBtn').onclick = reset;

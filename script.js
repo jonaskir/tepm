@@ -311,7 +311,9 @@ window.onload = function () {
       if (!(arr.indexOf(measure.id) > -1)) {
         hide.push(measure.id);
       } else {
-        categories.splice(categories.indexOf(category.id), 1);
+        var index = categories.indexOf(category.id);
+        if (index > -1)
+          categories.splice(index, 1);
       }
     });
     hide = hide.concat(categories);

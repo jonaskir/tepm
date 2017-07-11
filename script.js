@@ -218,7 +218,7 @@ function renderInitial(hide) {
 
     cell.innerHTML = `
       <div class="popover popover-left">
-        <span class="measure-info-icon">🛈</span>
+        <span class="measure-info-icon">(?)</span>
         <div class="popover-container">
           <div class="card">
             <div class="card-header">

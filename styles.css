@@ -25,9 +25,12 @@ td {
 }
 
 .measure-info-icon {
-  margin: 0px;
-  padding: 0px;
-  font-size: 1.7rem;
+  /*border: 1px solid black;
+  border-radius: 50%;
+  padding: 0rem 0.4rem;*/
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 footer .separator {

@@ -50,3 +50,20 @@ code#input-prompt {
   margin-bottom: 1.75rem;
   font-style: italic;
 }
+
+#sctParams {
+  margin-bottom: 3rem;
+}
+
+ #queryParamsTable {
+  table-layout: fixed;
+  width: 100%;
+} 
+
+#queryParamsTable #paramColumn {
+  width: 15rem;
+}
+
+#measureIdTable {
+  max-width: 40rem;
+}

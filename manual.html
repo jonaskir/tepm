@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="index, follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="https://github.com/jonaskir/" />
+
+  <title>Text Entry Performance Measures</title>
+
+  <link rel="stylesheet" href="spectre.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <!--[if lt IE 8]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <div class="bg-gray">
+    <div class="container grid-960">
+      <header class="navbar">
+        <div class="navbar-section">
+          <a href="https://jonaskir.github.io/tepm" class="navbar-brand mr-10">Text Entry Performance Measures</a>
+        </div>
+        <div class="navbar-section"></div>
+      </header>
+    </div>
+  </div>
+  <div class="container grid-960 main">
+    <section id="sctIntro" class="container">
+      <p>
+        Custom demos can be created by adding query parameters to the URL of the site (<code>https://jonaskir.github.io/tepm</code>).
+        The available query parameters are explained in the subsequent table.
+        <a href="index.html?prompt=example&write=o<ax[<<]ex[ample]&delay=500&show=input-stream,wpm,msd-er&mode=demo" target="_blank">Click here for an example.</a>
+      </p>
+    </section>
+    <section id="sctParams" class="container">
+      <h3>Query Parameters</h3>
+      <p>
+        All available query parameters are explained in the subsequent table.
+        The default value is used if the query parameter is not set.
+        Parameters are specified in a <code>key=value</code>format.
+        The first query parameter is prepended with a <code>?</code>, 
+        every other query parameter is prepended with a <code>&</code> (cf. example above).
+      </p>
+      <table id="queryParamsTable" class="table table-striped table-hover">
+        <colgroup>
+          <col id="paramColumn">
+          <col>
+          <col>
+        </colgroup>
+        <tr>
+          <th>Query Parameter</th>
+          <th>Description</th>
+          <th>Default Value</th>
+        </tr>
+        </colgroup>
+          <tr>
+            <td>prompt</td>
+            <td>Sets the phrase which is presented to the user for transcription.</td>
+            <td><code>the quick brown fox jumps over the lazy dog</code></td>
+          </tr>
+          <tr>
+            <td>write</td>
+            <td>
+              Sets the text which is automatically written in the input field. 
+              Use <code><</code> for backspaces, <code>[abc]</code> to add the characters "abc" in one action
+              and <code>[<<<]</code> to backspace three characters in one action.
+            </td>
+            <td>(empty)</td>
+          </tr>
+          <tr>
+            <td>delay</td>
+            <td>Sets the delay in milliseconds between actions.</td>
+            <td>200</td>
+          </tr>
+          <tr>
+            <td>hide</td>
+            <td>Hides the specified measures. Measures are specified by their ID (see below), separated by a comma.</td>
+            <td>(none &rarr; all measures are shown)</td>
+          </tr>
+          <tr>
+            <td>show</td>
+            <td>
+              Shows only the specified measures. Measures are specified by their ID (see below), separated by a comma.
+              Empty measure categories are automatically hidden as well.
+              Setting this value also hides the introductory words.
+            </td>
+            <td>(none) &rarr; all measures are shown</td>
+          </tr>
+          <tr>
+            <td>mode</td>
+            <td>If set to <code>demo</code>, the footer is hidden.</td>
+            <td>(none)</td>
+          </tr>
+      </table>
+    </section>
+    <section id="sctMeasureIds" class="container">
+      <h3>Measure IDs</h3>
+      <p>
+        All available measure IDs are explained in the subsequent table.
+      </p>
+      <table id="measureIdTable" class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Measure</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>transcribed</td>
+            <td>Transcribed string (T)</td>
+          </tr>
+          <tr>
+            <td>total-time</td>
+            <td>Total elapsed time (S)</td>
+          </tr>
+          <tr>
+            <td>input-stream</td>
+            <td>Input Stream (IS)</td>
+          </tr>
+          <tr>
+            <td>cps</td>
+            <td>Characters per Second (CPS)</td>
+          </tr>
+          <tr>
+            <td>wpm</td>
+            <td>Words per Minute (WPM)</td>
+          </tr>
+          <tr>
+            <td>adjwpm</td>
+            <td>Adjusted Words per Minute (AdjWPM)</td>
+          </tr>
+          <tr>
+            <td>gps</td>
+            <td>Gestures per Second (GPS)</td>
+          </tr>
+          <tr>
+            <td>gpc</td>
+            <td>Gestures per Character (GPC)</td>
+          </tr>
+          <tr>
+            <td>msd-er</td>
+            <td>Minimum String Distance Error Rate (MSD-ER)</td>
+          </tr>
+          <tr>
+            <td>cer</td>
+            <td>Corrected Error Rate</td>
+          </tr>
+          <tr>
+            <td>uer</td>
+            <td>Uncorrected Error Rate</td>
+          </tr>
+          <tr>
+            <td>ter</td>
+            <td>Total Error Rate</td>
+          </tr>
+          <tr>
+            <td>ce</td>
+            <td>Correction Efficiency</td>
+          </tr>
+          <tr>
+            <td>pc</td>
+            <td>Particpant Conscientiousness</td>
+          </tr>
+          <tr>
+            <td>ubw</td>
+            <td>Utilized Bandwidth</td>
+          </tr>
+          <tr>
+            <td>wbw</td>
+            <td>Wasted Bandwidth</td>
+          </tr>
+          <tr>
+            <td>c</td>
+            <td>Number of correct characters (C)</td>
+          </tr>
+          <tr>
+            <td>inf</td>
+            <td>Number of incorrect characters (INF/MSD)</td>
+          </tr>
+          <tr>
+            <td>if</td>
+            <td>Number of incorrect-fixed characters (IF)</td>
+          </tr>
+          <tr>
+            <td>f</td>
+            <td>Number of fixes (F)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+  <div id="footer" class="bg-gray" style="margin-top: 40px;">
+    <footer class="container grid-960">
+      <p>
+        <strong>Text Entry Performance Measures</strong> 
+        <a href="https://github.com/jonaskir/tepm" class="ml-10">(Source Code)</a>
+      </p>
+      <p>
+        © 2017 by <a href="https://github.com/jonaskir">github.com/jonaskir</a>
+        <span class="separator">|</span> Design based on <a href="https://picturepan2.github.io/spectre/index.html">Spectre.css</a>
+        <span class="separator">|</span> Formulas rendered by <a href="https://khan.github.io/KaTeX/">KaTeX</a>
+        <span class="separator">|</span> MSD calculation by <a href="https://github.com/gustf/js-levenshtein/">js-levenshtein</a>
+      </p>
+      <p>
+        <i>All provided under MIT license.</i>
+      </p>
+    </footer>
+  </div>
+</body>
+
+</html>

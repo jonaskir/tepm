@@ -65,10 +65,10 @@ var m = {
         title: 'Gestures per Character (GPC)',
         calculate: function () { return inputStream.events.length / val('gen.transcribed').length; }
       },
-      msd: {
-        id: 'msd',
-        title: 'Minimum String Distance (MSD)',
-        calculate: function () { return msd(inputPrompt, val('gen.transcribed')); }
+      msder: {
+        id: 'msd-er',
+        title: 'Minimum String Distance (MSD) Error Rate',
+        calculate: function () { return msd(inputPrompt, val('gen.transcribed')) / Math.max(val('gen.transcribed').length, inputPrompt.length); }
       },
       cer: {
         id: 'cer',
@@ -132,6 +132,32 @@ var m = {
       //     return (noOfBlocks > 0) ? (IF + F) / noOfBlocks : '-';
       //   }
       // }
+    },
+  },
+  util: {
+    id: 'utility-measures',
+    title: 'Utility',
+    measures: {
+      C: {
+        id: 'c',
+        title: 'No. of Correct Characters (C)',
+        calculate: function () { return calculateCharacterClasses().C; }
+      },
+      INF: {
+        id: 'inf',
+        title: 'No. of Incorrect-Not-Fixed Characters (INF/MSD)',
+        calculate: function () { return calculateCharacterClasses().INF; }
+      },
+      IF: {
+        id: 'if',
+        title: 'No. of Incorrect-Fixed Characters (IF)',
+        calculate: function () { return calculateCharacterClasses().IF; }
+      },
+      F: {
+        id: 'f',
+        title: 'No. of Fixes (F)',
+        calculate: function () { return calculateCharacterClasses().F; }
+      },
     },
   },
 };

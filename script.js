@@ -335,6 +335,7 @@ window.onload = function () {
     hide = queryParams.hide.split(',');
 
   if (queryParams.show) {
+    el('sctIntro').style.display = 'none';
     var arr = queryParams.show.split(',');
     var categories = [];
     iter(m, function (cat) { categories.push(cat.id) });

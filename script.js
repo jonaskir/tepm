@@ -11,18 +11,20 @@ var m = {
       transcribed: {
         id: 'transcribed',
         title: 'Transcribed String (T)',
-        calculate: function () { return el('input').value; }
+        calculate: function () { return el('input').value; },
+        prefix: function () { var val = el('input').value; return `(|T| = ${(val)? val.length : 0})`},
       },
       totalTime: {
         id: 'total-time',
         title: 'Total time (S)',
-        unit: 's',
-        calculate: function () { return (inputStream.lastEvent.timeStamp - inputStream.events[0].timeStamp) / 1000; }
+        calculate: function () { return (inputStream.lastEvent.timeStamp - inputStream.events[0].timeStamp) / 1000; },
+        prefix: function () { return 's'; },
       },
       is: {
         id: 'input-stream',
         title: 'Input Stream (IS)',
         calculate: function () { return inputStream.str },
+        prefix: function () { return `(|IS| = ${inputStream.events.length})`; },
       }
     },
   },
@@ -68,7 +70,7 @@ var m = {
       msder: {
         id: 'msd-er',
         title: 'Minimum String Distance (MSD) Error Rate',
-        calculate: function () { return msd(inputPrompt, val('gen.transcribed')) / Math.max(val('gen.transcribed').length, inputPrompt.length); }
+        calculate: function () { return msd(inputPrompt, val('gen.transcribed')) / Math.max(val('gen.transcribed').length, inputPrompt.length); },
       },
       cer: {
         id: 'cer',
@@ -271,7 +273,11 @@ function displayMeasureValue(measure) {
   if (!isNaN(value))
     value = round(value);
 
-  el(measure.id + '-value').innerText = value + (measure.unit? ' ' + measure.unit : '');
+  prefix = (measure.prefix)? measure.prefix() : null;
+  if (prefix && !isNaN(prefix))
+      prefix = round(prefix);
+
+  el(measure.id + '-value').innerText = `${value} ${prefix || ''}`;
 }
 
 // Resets all values.

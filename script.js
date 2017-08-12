@@ -277,7 +277,14 @@ function displayMeasureValue(measure) {
   if (prefix && !isNaN(prefix))
       prefix = round(prefix);
 
-  el(measure.id + '-value').innerText = `${value} ${prefix || ''}`;
+  var p = document.createElement('p');
+  p.innerText = value;
+  var span = document.createElement('span');
+  span.classList.add('measure-prefix');
+  span.innerText = prefix || '';
+  p.appendChild(span);
+  var valueContainer = el(measure.id + '-value');
+  valueContainer.replaceChild(p, valueContainer.firstChild);
 }
 
 // Resets all values.

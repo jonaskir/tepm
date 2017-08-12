@@ -67,3 +67,8 @@ code#input-prompt {
 #measureIdTable {
   max-width: 40rem;
 }
+
+.measure-prefix {
+  margin-left: 1rem; 
+  font-family: monospace;
+}
